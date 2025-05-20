@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Short URL Created</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="result-card">
+            <div class="success-header">
+                <i class="fas fa-check-circle success-icon"></i>
+                <h1>Your Short URL is Ready!</h1>
+            </div>
+
+            <div class="short-url-container">
+                <div class="short-url-display">
+                    <% const urlPath = new URL(shortUrl).pathname; %>
+                    <span id="shortUrlPath"><%= urlPath %></span>
+                </div>
+                <button class="copy-btn" onclick="copyToClipboard()">
+                    <i class="fas fa-copy"></i>
+                    Copy
+                </button>
+            </div>
+
+            <a href="/" class="new-link-btn">
+                <i class="fas fa-plus"></i>
+                Create Another
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            const fullUrl = '<%= shortUrl %>';
+            navigator.clipboard.writeText(fullUrl).then(() => {
+                alert('Copied to clipboard:\n' + fullUrl);
+            });
+        }
+    </script>
+</body>
+</html>

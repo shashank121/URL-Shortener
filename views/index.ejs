@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Shortener</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <h1>
+        <i class="fas fa-link"></i>
+        URL Shortener
+      </h1>
+    </div>
+
+    <% if (typeof error !== 'undefined') { %>
+      <div class="error-message">
+        <%= error %>
+      </div>
+    <% } %>
+
+    <div class="form-wrapper">
+      <form action="/shorten" method="POST">
+        <div class="input-group">
+          <input 
+            type="url" 
+            name="longUrl" 
+            placeholder="Enter your long URL here..."
+            required
+            aria-label="Enter URL to shorten"
+          >
+          <button type="submit">
+            <i class="fas fa-wand-magic-sparkles"></i>
+            Shorten
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
